@@ -3,8 +3,10 @@
     <div class="content__body">
       <p class="content__text">Все контакты</p>
       <hr />
-      <ListElement />
-      <ListElement />
+      <ListElement v-for="(contact, idx) of contacts"
+      v-bind:contact="contact"
+      :key="idx"
+      @removeContact="removeContact"/>
     </div>
   </div>
 </template>
@@ -16,6 +18,19 @@ export default {
   name: 'Content',
   components: {
     ListElement
+  },
+  data () {
+    return {
+      contacts: [
+        { id: 1, name: 'Name', phone: '+' + 79242874764 },
+        { id: 2, name: 'Name', phone: '+' + 79242874764 }
+      ]
+    }
+  },
+  methods: {
+    removeContact (id) {
+      this.contacts = this.contacts.filter(c => c.id !== id)
+    }
   }
 }
 </script>

@@ -4,21 +4,48 @@
       <div class="list-item__contact-info">
         <img src="../assets/contact-icon.png" alt="" width="40px" height="40px">
         <div class="list-item__info">
-          <p class="list-item__name">Name</p>
-          <p class="list-item__phone">+79242874764</p>
+          <p class="list-item__name">{{ contact.name }}</p>
+          <p class="list-item__phone">{{ contact.phone }}</p>
         </div>
       </div>
-      <div class="list-item__delete">
+      <div class="list-item__delete" @click="openModal">
         <p>&#10006;</p>
       </div>
     </div>
     <hr />
+    <DeleteModal v-show="active"
+    @close="closeModal"
+    @removeContact="removeContact"
+    v-bind:contact="contact"/>
   </div>
 </template>
 
 <script>
+import DeleteModal from '@/components/DeleteModalWindow.vue'
+
 export default {
-  name: 'ListElement'
+  name: 'ListElement',
+  components: {
+    DeleteModal
+  },
+  data () {
+    return {
+      active: false
+    }
+  },
+  methods: {
+    openModal () {
+      this.active = true
+    },
+    closeModal () {
+      this.active = false
+      console.log(this.active)
+    },
+    removeContact (id) {
+      this.$emit('removeContact', id)
+    }
+  },
+  props: ['contact']
 }
 </script>
 
