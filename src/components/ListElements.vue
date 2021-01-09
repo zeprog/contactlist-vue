@@ -1,32 +1,19 @@
 <template>
   <div class="content__list-item">
-    <div class="list-item">
-      <div class="list-item__contact-info">
-        <img src="../assets/contact-icon.png" alt="" width="40px" height="40px">
-        <div class="list-item__info">
-          <p class="list-item__name">{{ contact.name }}</p>
-          <p class="list-item__phone">{{ contact.phone }}</p>
-        </div>
-      </div>
-      <div class="list-item__delete" @click="openModal">
-        <p>&#10006;</p>
-      </div>
-    </div>
-    <hr />
-    <DeleteModal v-show="active"
-    @close="closeModal"
-    @removeContact="removeContact"
-    v-bind:contact="contact"/>
+    <ListItem v-for="(contact, idx) of contacts"
+    :key="idx"
+    v-bind:contact="contact"
+    @removeContact="removeContact"/>
   </div>
 </template>
 
 <script>
-import DeleteModal from '@/components/DeleteModalWindow.vue'
+import ListItem from '@/components/ListElementItem.vue'
 
 export default {
   name: 'ListElement',
   components: {
-    DeleteModal
+    ListItem
   },
   data () {
     return {
@@ -45,7 +32,7 @@ export default {
       this.$emit('removeContact', id)
     }
   },
-  props: ['contact']
+  props: ['contacts']
 }
 </script>
 
@@ -54,14 +41,14 @@ $lightGrayColor: #eee;
 
 .content__list-item {
   cursor: pointer;
-  &:hover {
-    background-color: $lightGrayColor;
-  }
 
   .list-item {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
+    &:hover {
+      background-color: $lightGrayColor;
+    }
 
     .list-item__contact-info {
       display: flex;

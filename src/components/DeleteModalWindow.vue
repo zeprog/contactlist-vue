@@ -20,11 +20,7 @@ export default {
       this.$emit('close')
     }
   },
-  props: {
-    contact: {
-      type: Object
-    }
-  }
+  props: ['contact']
 }
 </script>
 

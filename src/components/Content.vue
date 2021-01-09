@@ -4,10 +4,9 @@
       <div class="content__body">
         <p class="content__text">Все контакты</p>
         <hr />
-        <ListElement v-for="(contact, idx) of contacts"
-        v-bind:contact="contact"
-        :key="idx"
-        @removeContact="removeContact"/>
+        <ListElement v-bind:contacts="contacts"
+        @removeContact="removeContact"
+        v-if="contacts.length"/>
         <AddModal v-show="active"
         @addContact="addContact"
         @close="close"/>

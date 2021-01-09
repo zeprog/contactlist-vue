@@ -9,7 +9,6 @@
 <script>
 export default {
   name: 'AddContactButton',
-  components: {},
   data () {
     return {
       active: false

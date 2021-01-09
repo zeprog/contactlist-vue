@@ -45,6 +45,10 @@ export default {
           phone: this.phone
         }
         this.$emit('addContact', newContact)
+        this.name = ''
+        this.phone = ''
+        this.email = ''
+        this.company = ''
       }
     }
   }
