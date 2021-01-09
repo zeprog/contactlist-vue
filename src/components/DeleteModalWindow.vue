@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="delete__background" v-on:click="close"></div>
-    <div class="delete__modal">
-      <p class="delete__modal-text">Вы уверены, что хотите удалить выбранный контакт?</p>
+    <div class="modal__background" v-on:click="close"></div>
+    <div class="modal__body">
+      <h2 class="modal__title">Вы уверены, что хотите удалить выбранный контакт?</h2>
       <hr />
-      <div class="delete__modal-buttons">
-        <button class="delete__modal-btn_yes btn" v-on:click="$emit('removeContact', contact.id)">Удалить</button>
-        <button class="delete__modal-btn_no btn" v-on:click="close">Отмена</button>
+      <div class="modal__buttons">
+        <button class="modal__btn_delete btn" v-on:click="$emit('removeContact', contact.id)">Удалить</button>
+        <button class="modal__btn_back btn" v-on:click="close">Отмена</button>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
 <style lang="scss">
 $redColor: #B22222;
 
-.delete__background {
+.modal__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,7 +41,7 @@ $redColor: #B22222;
   background-color: rgba(0, 0, 0, .3);
 }
 
-.delete__modal {
+.modal__body {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -54,8 +54,8 @@ $redColor: #B22222;
   border-radius: 8px;
   cursor: default;
 
-  .delete__modal-text {
-    font-size: 16px;
+  .modal__title {
+    font-size: 18px;
     opacity: .6;
   }
 
@@ -63,17 +63,17 @@ $redColor: #B22222;
     margin: 15px 0;
   }
 
-  .delete__modal-buttons {
+  .modal__buttons {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
   }
 
-  .delete__modal-btn_yes {
+  .modal__btn_delete {
     color: $redColor;
   }
 
-  .delete__modal-btn_no {
+  .modal__btn_back {
     opacity: .7;
   }
 }

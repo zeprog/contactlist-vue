@@ -1,6 +1,6 @@
 <template>
   <div class="add-button">
-    <div class="add-button__body">
+    <div class="add-button__body" @click="open">
       <p>+</p>
     </div>
   </div>
@@ -8,7 +8,18 @@
 
 <script>
 export default {
-  name: 'AddContactButton'
+  name: 'AddContactButton',
+  components: {},
+  data () {
+    return {
+      active: false
+    }
+  },
+  methods: {
+    open () {
+      this.$emit('openModal')
+    }
+  }
 }
 </script>
 
@@ -17,8 +28,8 @@ $mainColor: #00BFFF;
 $hoverColor: #20c7ff;
 
 .add-button {
-  display: fixed;
-  position: absolute;
+  display: block;
+  position: fixed;
   top: 88%;
   left: 94%;
 
