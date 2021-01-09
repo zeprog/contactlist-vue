@@ -7,6 +7,7 @@
         <ListElement v-bind:contacts="contacts"
         @removeContact="removeContact"
         v-if="contacts.length"/>
+        <p class="content__text-nocontact" v-else>У вас нет ни одного контакта</p>
         <AddModal v-show="active"
         @addContact="addContact"
         @close="close"/>
@@ -65,9 +66,16 @@ export default {
     padding: 15px 15px;
 
     .content__text {
-    font-size: 16px;
-    opacity: .6;
-    padding-bottom: 10px;
+      font-size: 16px;
+      opacity: .6;
+      padding-bottom: 10px;
+    }
+
+    .content__text-nocontact {
+      font-size: 16px;
+      opacity: .6;
+      padding-top: 10px;
+      text-align: center;
     }
   }
 }
