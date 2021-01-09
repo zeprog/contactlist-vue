@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <div class="header-body">
+      <router-link to="/">
       <h1 class="header__title">МоиКонтакты</h1>
+      </router-link>
     </div>
   </div>
 </template>
@@ -15,6 +17,10 @@ export default {
 <style lang="scss">
 $mainColor: #00BFFF;
 $whiteColor: #fff;
+
+a {
+  text-decoration: none;
+}
 
 .header {
   height: 50px;

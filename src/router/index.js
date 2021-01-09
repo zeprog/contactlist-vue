@@ -1,13 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import ContactList from '@/views/ContactList.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/contactlist',
+    path: '/',
     name: 'Contact List',
-    component: () => import('../views/ContactList.vue')
+    component: ContactList
+  },
+  {
+    path: '/contactinfo',
+    name: 'Contact Info',
+    component: () => import('../views/ContactInfo.vue')
   }
 ]
 

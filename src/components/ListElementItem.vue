@@ -1,13 +1,15 @@
 <template>
   <div>
     <div class="list-item">
-      <div class="list-item__contact-info">
-        <img src="../assets/contact-icon.png" alt="" width="40px" height="40px">
-        <div class="list-item__info">
-          <p class="list-item__name">{{ contact.name }}</p>
-          <p class="list-item__phone">{{ contact.phone }}</p>
+      <router-link to="/contactinfo">
+        <div class="list-item__contact-info">
+          <img src="../assets/contact-icon.png" alt="" width="40px" height="40px">
+          <div class="list-item__info">
+            <p class="list-item__name">{{ contact.name }}</p>
+            <p class="list-item__phone">{{ contact.phone }}</p>
+          </div>
         </div>
-      </div>
+      </router-link>
       <div class="list-item__delete" @click="openModal">
         <p>&#10006;</p>
       </div>

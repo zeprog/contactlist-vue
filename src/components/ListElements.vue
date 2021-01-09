@@ -39,6 +39,10 @@ export default {
 <style lang="scss">
 $lightGrayColor: #eee;
 
+a {
+  text-decoration: none;
+}
+
 .content__list-item {
   cursor: pointer;
 
